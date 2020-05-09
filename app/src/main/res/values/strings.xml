@@ -10,4 +10,5 @@
     <string name="name">Nama</string>
     <string name="email">Email</string>
     <string name="password_confirmation">Konfirmasi Password</string>
+    <string name="input_empty_error">Inputan tidak boleh kosong!</string>
 </resources>
