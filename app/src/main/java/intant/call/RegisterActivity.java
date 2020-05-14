@@ -148,7 +148,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             FirebaseUser user = mAuth.getCurrentUser();
 
                             // go to MainActivity
-                            Toast.makeText(getApplicationContext(), "Berhasil daftar", Toast.LENGTH_LONG).show();
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            finish();
                         } else {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(getApplicationContext(), "Tidak bisa membuat akun. Check email dan password kamu", Toast.LENGTH_LONG).show();

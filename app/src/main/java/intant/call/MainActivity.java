@@ -1,10 +1,14 @@
 package intant.call;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -22,11 +26,11 @@ public class  MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-//        if (!isSignedIn()) {
+        if (!isSignedIn()) {
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();
-//        }
+        }
     }
 
     private boolean isSignedIn() {
