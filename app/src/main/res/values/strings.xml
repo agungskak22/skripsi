@@ -11,4 +11,9 @@
     <string name="email">Email</string>
     <string name="password_confirmation">Konfirmasi Password</string>
     <string name="input_empty_error">Inputan tidak boleh kosong!</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="enter_your_data">Masukkan data diri anda</string>
+    <string name="we_will_calculate_your_calory">Kami akan menghitung jumlah kalori anda</string>
 </resources>
