@@ -12,24 +12,29 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 import intant.call.Model.FoodItem;
 import intant.call.R;
 
-public class FoodItemListAdapter extends RecyclerView.Adapter<FoodItemListAdapter.ViewHolder> {
+public class FoodItemSearchAdapter extends RecyclerView.Adapter<FoodItemSearchAdapter.ViewHolder> {
+
     private ArrayList<FoodItem> foodItems;
     private Context context;
+    private FoodItemSearchAdapter.onItemClickListener listener;
 
-    public FoodItemListAdapter(ArrayList foodItems, Context context) {
+    public FoodItemSearchAdapter(ArrayList<FoodItem> foodItems, Context context, FoodItemSearchAdapter.onItemClickListener listener) {
         this.foodItems = foodItems;
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_food_item_list, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_search_food_item, parent, false);
         return new ViewHolder(v);
     }
 
@@ -43,21 +48,28 @@ public class FoodItemListAdapter extends RecyclerView.Adapter<FoodItemListAdapte
         return foodItems.size();
     }
 
+    public interface onItemClickListener {
+        void onClick(FoodItem foodItem);
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
-        private ImageView ivFoodImage;
+
         private TextView tvFoodName;
         private TextView tvFoodDescription;
         private TextView tvFoodCalory;
+        private ImageView ivFoodImage;
+        private ImageView ivAddFood;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivFoodImage = itemView.findViewById(R.id.iv_food_image);
             tvFoodCalory = itemView.findViewById(R.id.tv_food_calory);
             tvFoodDescription = itemView.findViewById(R.id.tv_food_description);
             tvFoodName = itemView.findViewById(R.id.tv_food_name);
+            ivAddFood = itemView.findViewById(R.id.iv_add_food);
+            ivFoodImage = itemView.findViewById(R.id.iv_food_image);
         }
 
-        public void bind(FoodItem foodItem) {
+        public void bind(final FoodItem foodItem) {
             tvFoodName.setText(foodItem.getName());
             tvFoodDescription.setText(foodItem.getDescription());
             tvFoodCalory.setText(String.format("%d Kalori", foodItem.getCalory()));
@@ -66,6 +78,14 @@ public class FoodItemListAdapter extends RecyclerView.Adapter<FoodItemListAdapte
                     .load(foodItem.getImageUrl())
                     .placeholder(R.drawable.food_placeholder)
                     .into(ivFoodImage);
+
+            ivAddFood.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onClick(foodItem);
+                }
+            });
         }
     }
+
 }
