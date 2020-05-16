@@ -94,7 +94,7 @@ public class ListCaloryFragment extends Fragment {
     }
 
     private void setFoodItemRecyclerView() {
-        adapterFoodItemList = new FoodItemListAdapter(getFoodItems());
+        adapterFoodItemList = new FoodItemListAdapter(getFoodItems(), getActivity());
         rvFoodList.setAdapter(adapterFoodItemList);
         rvFoodList.setLayoutManager(new LinearLayoutManager(getActivity()));
     }
@@ -115,12 +115,12 @@ public class ListCaloryFragment extends Fragment {
     private ArrayList<FoodItem> getFoodItems() {
         ArrayList<FoodItem> foodItems = new ArrayList<>();
 
-        foodItems.add(new FoodItem("", "Nasi Putih", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 200));
-        foodItems.add(new FoodItem("", "Nasi Goreng", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 300));
-        foodItems.add(new FoodItem("", "Nasi Sayur", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 150));
-        foodItems.add(new FoodItem("", "Nasi Telur", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 350));
-        foodItems.add(new FoodItem("", "Mie dok dok", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 210));
-        foodItems.add(new FoodItem("", "Intel", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 120));
+        foodItems.add(new FoodItem("", "https://firebasestorage.googleapis.com/v0/b/tantanprojek.appspot.com/o/images%2Fapel_1-removebg-preview%202.png?alt=media&token=b6e5ec33-c9e9-452f-8376-db5cf59fe2d1", "Nasi Putih", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 200));
+        foodItems.add(new FoodItem("", "https://firebasestorage.googleapis.com/v0/b/tantanprojek.appspot.com/o/images%2Fapel_1-removebg-preview%202.png?alt=media&token=b6e5ec33-c9e9-452f-8376-db5cf59fe2d1", "Nasi Goreng", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 300));
+        foodItems.add(new FoodItem("", "", "Nasi Sayur", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 150));
+        foodItems.add(new FoodItem("", "", "Nasi Telur", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 350));
+        foodItems.add(new FoodItem("", "", "Mie dok dok", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 210));
+        foodItems.add(new FoodItem("", "", "Intel", "dibuat dari potongan-potongan ayam yang digoreng dengan minya zaitun.", 120));
 
         return foodItems;
     }
